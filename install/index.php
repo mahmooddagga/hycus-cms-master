@@ -45,7 +45,7 @@ function checkdatabase(){
 
 	if($saveconfig_result=="success"){
 		if($hycus_db_type == "MySQL"){
-			$db = mysql_connect($hycus_db_host, $hycus_db_user, $hycus_db_pwd);
+			$db = mysql_connect(getenv("OPENSHIFT_MYSQL_DB_HOST").":".getenv("OPENSHIFT_MYSQL_DB_PORT"), $hycus_db_user, $hycus_db_pwd);
 			mysql_select_db($hycus_db_name);
 			mysql_query("set names 'utf8'");
 			mysql_query("set character set utf8");
